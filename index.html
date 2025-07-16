@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Embodied Spatial Affordance: Spatial-Aware Affordance Learning for Embodied Navigation and Manipulation">
+  <meta property="og:title" content="Embodied Spatial Affordance"/>
+  <meta property="og:description" content="Spatial-Aware Affordance Learning for Embodied Navigation and Manipulation"/>
+  <meta property="og:url" content="https://github.com/tyb197/RoboAfford"/>
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:title" content="Embodied Spatial Affordance">
+  <meta name="twitter:description" content="Spatial-Aware Affordance Learning for Embodied Navigation and Manipulation">
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="keywords" content="Embodied Spatial Affordance, Spatial Reasoning, Embodied Navigation, Embodied Manipulation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>RoboAfford: A Dataset and Benchmark for Enhancing Object and Spatial Affordance Learning in Robot Manipulation</title>
+  <link rel="icon" type="image/x-icon" href="static/images/robot.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Embodied Spatial Affordance: Spatial-Aware Affordance Learning for Embodied Navigation and Manipulation</h1>
+          <div class="is-size-5 publication-authors" style="margin-top: 1rem;">
+  <span class="author-block">
+    <a href="#">Xiaoshuai Hao</a><sup>1</sup>,
+    <a href="#">Yingbo Tang</a><sup>2,3,†</sup>,
+    <a href="#">Lingfeng Zhang</a><sup>4</sup>
+  </span>
+  <br>
+  <span class="author-block">
+    <sup>1</sup>Beijing Academy of Artificial Intelligence (BAAI)<br>
+    <sup>2</sup>Institute of Automation, Chinese Academy of Sciences<br>
+    <sup>3</sup>School of Artiffcial Intelligence, University of Chinese Academy of Sciences<br>
+    <sup>4</sup>Shenzhen International Graduate School, Tsinghua University
+  </span>
+  <br>
+  <span class="author-block">
+    <!-- <sup>*</sup>Co-first Authors &nbsp;&nbsp; -->
+    <sup>†</sup>Corresponding Author
+  </span>
+</div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="static/pdfs/ESA.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
+                </a>
+              </span>
+<!--               <span class="link-block">
+                <a href="static/pdfs/supplementary_material.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Supplementary</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="https://github.com/tyb197/RoboAfford" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+                </a>
+              </span>
+<!--               <span class="link-block">
+                <a href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/tyb197/RoboAfford" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="far fa-images"></i></span><span>Dataset</span>
+                  </a>
+                </span>
+              <!-- Benchmark Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/tyb197/RoboAfford-Eval" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="far fa-images"></i></span><span>Benchmark</span>
+                  </a>
+                </span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+          <img 
+              src="static/images/figure1.png"
+              class="pipeline image"
+              alt="pipeline image"
+              style="margin-bottom: 20px;"
+          />
+      <h2 class="subtitle has-text-centered">
+         This work introduces <strong>Embodied Spatial Affordance (ESA)</strong> dataset. 
+         The dataset is categorized into object affordances and free space affordances, supporting both navigation and manipulation tasks. 
+         In navigation tasks, the agent must reach a target object or a designated empty area; 
+         in manipulation tasks, the agent learns to identify functional parts for grasping and suitable spaces for placement. 
+         The ESA dataset integrates spatial reasoning with affordance understanding in an embodied context.
+      </h2>
+    </div>
+  </div>
+</section>
+  
+<!-- Abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Embodied agents must effectively navigate and manipulate objects within their environments to accomplish tasks.
+            A key challenge in this process is understanding the spatial context and the affordances of the environment, which involves recognizing how object can be interacted with (object affordance) and identifying suitable location for movement and object placement (free space affordance). 
+            Despite the recent adoption of Vision-Language Models (VLMs) to control robot behavior, these models often struggle to translate reasoning outcomes into precise executable actions, focusing instead on high-level spatial question answering and task planning. 
+          </p>
+          <p>
+            To address this gap, we introduce the <strong>Embodied Spatial Affordance</strong> dataset, a comprehensive resource designed to enable embodied agents to reason about both object and free space affordances. 
+            This dual focus enhances agents’ ability to navigate their environment, interact with specific objects, and identify appropriate locations for object placement. 
+            By integrating reasoning about object properties with spatial context, we aim to improve the robustness and versatility of embodied intelligence. 
+            Using the proposed ESA dataset, we develop a novel model, <strong>EspA</strong>, which predicts both object and free space affordances based on observed images and language instructions. 
+            The outputs of EspA are affordance keypoints providing actionable insights that facilitate real-time decision-making for embodied agents. 
+            Extensive experimental results demonstrate that EspA outperforms existing state-of-the-art Vision-Language Models (VLMs), both open-source and closed-source, in object and free space affordance prediction. 
+            Furthermore, it exhibits superior performance in real-world embodied navigation and manipulation experiments. 
+            We believe this work paves the way for more robust and versatile embodied agents capable of effectively interacting with complex environments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Abstract -->
+
+  
+<!-- Data Construction Pipeline -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="content">
+            <h2 class="title is-3">Dataset Construction</h2>
+            <img src="static/images/data_construction.png" alt="NaVid" class="center-image blend-img-background">
+            <div class="level-set has-text-justified">
+              <p class="has-text-justified">
+                Pipeline for constructing the ESA dataset. We begin by excluding images with densely repeated objects to ensure quality.
+                Next, we generate question-answering pairs using either human-designed templates or the GPT-4o model, facilitating diverse and contextually relevant interactions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="content">
+            <h2 class="subtitle is-4">Comparison of Existing Affordance Datasets</h2>
+            <img src="static/images/table1.png" alt="NaVid" class="center-image blend-img-background">
+            <div class="level-set has-text-justified">
+              <p class="has-text-justified">
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</section>
+<!-- End Data Construction Pipeline -->
+
+
+
+<!-- Methodology -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="content">
+            <h2 class="title is-3">Methodology</h2>
+            <img src="static/images/figure_framework.png" alt="NaVid" class="center-image blend-img-background">
+            <div class="level-set has-text-justified">
+              <p class="has-text-justified">
+                Framework of EspA. We fine-tune a multimodal language model on the ESA dataset to enhance object and free space affordance capabilities. 
+                For downstream embodied navigation and manipulation tasks, we integrate depth images to convert 2D points representing affordances into 3D coordinates, which are then used as target positions for navigation and manipulation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     </div>
+  </div>
+</section>
+<!-- End Methodology --> 
+
+
+<!-- Experiments -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="content">
+            <h2 class="title is-3">Experimental Results</h2>
+            <br>
+            <h2 class="subtitle is-4">Comparison Results of Various VLMs on ESA-Eval Benchmark.</h2>
+            <img src="static/images/table_results.png" alt="NaVid" class="center-image blend-img-background">
+            <div class="level-set has-text-justified">
+              <p class="has-text-justified">
+                
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="content">
+            <h2 class="title is-4">Real-world Embodied Navigation Experiments</h2>
+            <img src="static/images/figure_navigation.png" alt="NaVid" class="center-image blend-img-background">
+            <div class="level-set has-text-justified">
+              <p class="has-text-justified">
+                Results of deploying EspA model to downstream robotic navigation tasks.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="content">
+            <h2 class="subtitle is-4">Real-world Embodied Manipulation Experiments</h2>
+            <img src="static/images/figure_manipulation.png" alt="NaVid" class="center-image blend-img-background">
+            <div class="level-set has-text-justified">
+              <p class="has-text-justified">
+                Results of deploying EspA model to downstream robotic manipulation tasks.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="content">
+            <h2 class="subtitle is-4">Qualitative Results of EspA Model</h2>
+            <img src="static/images/figure_visualization.png" alt="NaVid" class="center-image blend-img-background">
+            <div class="level-set has-text-justified">
+              <p class="has-text-justified">
+                Qualitative results of EspA model, where cyan points indicate the object and free space affordances.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- End Experiments -->
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">License</h2>
+    <p>The datasets and benchmarks are under the Creative Commons Attribution 4.0 International License.</p>
+  </div>
+</section>
+
+<!-- You can now continue with your video, carousel, BibTeX, etc. -->
+
+ 
