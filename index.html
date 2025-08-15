@@ -43,24 +43,30 @@
           <div class="is-size-5 publication-authors" style="margin-top: 1rem;">
   <span class="author-block">
     <a href="#">Xiaoshuai Hao</a><sup>1</sup>,
-    <a href="#">Yingbo Tang</a><sup>2,3,†</sup>,
-    <a href="#">Lingfeng Zhang</a><sup>4</sup>,
+    <a href="#">Yingbo Tang</a><sup>2,3</sup>,
+    <a href="#">Lingfeng Zhang</a><sup>7</sup>,
+    <a href="#">Long Chen</a><sup>4</sup>,
     <a href="#">Wei Zhou</a><sup>5</sup>,
-    <a href="#">Wenbo Ding</a><sup>4</sup>,
-    <a href="#">Xiao-Ping Zhang</a><sup>4</sup>
+    <a href="#">Jungong Han</a><sup>6</sup>,
+    <a href="#">Wenbo Ding</a><sup>7</sup>,
+    <a href="#">Xiao-Ping Zhang</a><sup>7</sup>
   </span>
   <br>
   <span class="author-block">
     <sup>1</sup>Beijing Academy of Artificial Intelligence (BAAI)<br>
     <sup>2</sup>Institute of Automation, Chinese Academy of Sciences<br>
     <sup>3</sup>School of Artiffcial Intelligence, University of Chinese Academy of Sciences<br>
-    <sup>4</sup>Tsinghua Shenzhen International Graduate School, Tsinghua University<br>
-    <sup>5</sup>Cardiff University
+    <sup>4</sup>Xiaomi EV<br>
+    <sup>5</sup>Cardiff University<br>
+    <sup>6</sup>University of Sheffield<br>
+    <sup>7</sup>Tsinghua Shenzhen International Graduate School, Tsinghua University
+    
+    
   </span>
   <br>
   <span class="author-block">
     <!-- <sup>*</sup>Co-first Authors &nbsp;&nbsp; -->
-    <sup>†</sup>Corresponding Author
+<!--     <sup>†</sup>Corresponding Author -->
   </span>
 </div>
           <div class="column has-text-centered">
@@ -116,11 +122,11 @@
               style="margin-bottom: 20px;"
           />
       <h2 class="subtitle has-text-centered">
-         This work introduces <strong>Embodied Spatial Affordance (ESA)</strong> dataset. 
-         The dataset is categorized into object affordances and free space affordances, supporting both navigation and manipulation tasks. 
-         In navigation tasks, the agent must reach a target object or a designated empty area; 
-         in manipulation tasks, the agent learns to identify functional parts for grasping and suitable spaces for placement. 
-         The ESA dataset integrates spatial reasoning with affordance understanding in an embodied context.
+         Overview of the <strong>Embodied Spatial Affordance (ESA)</strong> dataset. 
+        The dataset is categorized into object affordances and free space affordances, supporting both navigation and manipulation tasks. 
+        In navigation tasks, the agent must reach a target object or a designated empty area; 
+        in manipulation tasks, the agent learns to identify functional parts for grasping and suitable spaces for placement. 
+        The ESA dataset integrates spatial reasoning with affordance understanding in an embodied context.
       </h2>
     </div>
   </div>
@@ -134,18 +140,20 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Embodied agents must effectively navigate and manipulate objects within their environments to accomplish tasks.
-            A key challenge in this process is understanding the spatial context and the affordances of the environment, which involves recognizing how object can be interacted with (object affordance) and identifying suitable location for movement and object placement (free space affordance). 
-            Despite the recent adoption of Vision-Language Models (VLMs) to control robot behavior, these models often struggle to translate reasoning outcomes into precise executable actions, focusing instead on high-level spatial question answering and task planning. 
+            Embodied navigation and manipulation are fundamental capabilities for embodied agents operating in physical environments. 
+            A key challenge in this process is understanding the spatial context and the affordances of the environment, which involves recognizing how objects can be interacted with (object affordance) and identifying suitable locations for movement and object placement (free space affordance). 
+            While Vision-Language Models (VLMs) have shown promise in high-level task planning, their ability to translate reasoning into precise executable actions remains limited, particularly in image-based spatial understanding and precise affordance localization—a critical gap in image processing for robotics. 
           </p>
           <p>
-            To address this gap, we introduce the <strong>Embodied Spatial Affordance</strong> dataset, a comprehensive resource designed to enable embodied agents to reason about both object and free space affordances. 
-            This dual focus enhances agents’ ability to navigate their environment, interact with specific objects, and identify appropriate locations for object placement. 
-            By integrating reasoning about object properties with spatial context, we aim to improve the robustness and versatility of embodied intelligence. 
-            Using the proposed ESA dataset, we develop a novel model, <strong>EspA</strong>, which predicts both object and free space affordances based on observed images and language instructions. 
-            The outputs of EspA are affordance keypoints providing actionable insights that facilitate real-time decision-making for embodied agents. 
+            To bridge this gap, we propose <strong>EspA</strong>, a novel image-to-keypoint model that leverages spatial-aware affordance learning to predict actionable affordances directly from 2D image inputs. 
+            Built on a hierarchical vision-language architecture, EspA jointly reasons about object affordance and free space affordances, enabling pixel-level localization of both types of interactions. 
+            Crucially, EspA translates language instructions into precise 2D affordance keypoints from observed images, which are then projected into 3D actionable coordinates using depth information. 
+            To support this unified affordance reasoning, we introduce the <strong>Embodied Spatial Affordance (ESA)</strong> dataset, which captures both object-centric interactions and free space contexts. 
+            By jointly modeling these affordances in a shared representation space, EspA overcomes the limitations of prior works that treat them independently. 
+            The dataset’s fine-grained annotations enable our model to learn the intricate relationship between object functionality and spatial feasibility, significantly enhancing the spatial understanding in embodied tasks. 
             Extensive experimental results demonstrate that EspA outperforms existing state-of-the-art Vision-Language Models (VLMs), both open-source and closed-source, in object and free space affordance prediction. 
             Furthermore, it exhibits superior performance in real-world embodied navigation and manipulation experiments. 
+            Our work advances the field of image-based spatial reasoning by providing a scalable solution for translating high-level instructions into low-level actionable affordance. 
             We believe this work paves the way for more robust and versatile embodied agents capable of effectively interacting with complex environments.
           </p>
         </div>
